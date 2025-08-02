@@ -60,6 +60,9 @@ def generate_tweet():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+@app.route('/')
+def index():
+    return "Backend is running!", 200
 
 
 le_company = joblib.load('company_encoder.pkl')
@@ -90,5 +93,6 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
 
 
